@@ -1,0 +1,28 @@
+// dependency
+
+const http = require('http');
+
+// scaffolding
+
+const app = {};
+
+// configuration
+
+app.config = {
+    prot: 3000,
+};
+
+// create a server
+
+app.createServer = () => {
+    const server = http.createServer(app.handleReqRes);
+    server.listen(app.config.prot, () => {
+        console.log('Listen to port', app.config.prot);
+    });
+};
+
+app.handleReqRes = (req, res) => {
+    res.end('Hello Node js');
+};
+
+app.createServer();
